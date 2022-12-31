@@ -5,14 +5,11 @@
 }
 
 :root {
-  --pr-height: 0%;
-  --pr-width: 0%;
+  --pr-size: 0%;
 
-  --0-height: 0%;
-  --0-width: 0%;
+  --0-size: 0%;
 
-  --height: 0%;
-  --width: 0%;
+  --size: 0%;
 }
 
 /* layers */
@@ -32,6 +29,14 @@ input {
 #curton1,
 #curton2 {
   z-index: 2;
+}
+
+#measure {
+  z-index: 3;
+}
+
+#result {
+  z-index: 4;
 }
 
 /* general styles */
@@ -102,17 +107,17 @@ input {
 
   margin: 0;
   padding: 0;
+
+  height: var(--0-size);
+  width: var(--0-size);
 }
 
 .move {
-  animation: moveMeasureDown;
+  animation: moveMeasure;
   animation-direction: normal;
-  animation-duration: 1s;
-
+  animation-duration: 2s;
+  animation-timing-function: linear;
   animation-fill-mode: forwards;
-
-  height: var(--0-height);
-  width: var(--0-width);
 }
 
 #center-container {
@@ -169,15 +174,11 @@ input {
 
 @keyframes moveMeasure {
   0% {
-    height: var(--pr-height);
-    width: var(--pr-width);
-  }
-  50% {
-    height: var(--0-height);
-    width: var(--0-width);
+    height: var(--pr-size);
+    width: var(--pr-size);
   }
   100% {
-    height: var(--height);
-    width: var(--width);
+    height: var(--size);
+    width: var(--size);
   }
 }

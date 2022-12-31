@@ -22,6 +22,7 @@ const answers = [
   { answer: 'скорее всего да. но уверены ли вы, что это именно то, чего вы действительно хотите?', chance: '80%'},
 ];
 
+const body = document.querySelector('body');
 const input = document.querySelector('#input');
 const sphere = document.querySelector('#sphere');
 const result = document.querySelector('#result');
@@ -41,10 +42,8 @@ function shake() {
   result.textContent = answers[index].answer;
   result.style.padding = '20px';
 
-  document.style.setProperty('--pr-height', prPossibility);
-  document.style.setProperty('--pr-width', prPossibility);
-  document.style.setProperty('--height', possibility);
-  document.style.setProperty('--width', possibility);
+  document.documentElement.style.setProperty('--pr-size', prPossibility);
+  document.documentElement.style.setProperty('--size', possibility);
   measure.className = 'move';
 }
 
