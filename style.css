@@ -107,17 +107,17 @@ input {
 
   margin: 0;
   padding: 0;
-
-  height: var(--0-size);
-  width: var(--0-size);
 }
 
 .move {
   animation: moveMeasure;
   animation-direction: normal;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
+
+  height: var(--pr-size);
+  width: var(--pr-size);
 }
 
 #center-container {

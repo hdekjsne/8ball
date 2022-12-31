@@ -44,7 +44,7 @@ function shake() {
 
   document.documentElement.style.setProperty('--pr-size', prPossibility);
   document.documentElement.style.setProperty('--size', possibility);
-  measure.className = 'move';
+  measure.classList.add('move');
 }
 
 function getKey(e) {
