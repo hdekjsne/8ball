@@ -4,6 +4,17 @@
   font-weight: 400;
 }
 
+:root {
+  --pr-height: 0%;
+  --pr-width: 0%;
+
+  --0-height: 0%;
+  --0-width: 0%;
+
+  --height: 0%;
+  --width: 0%;
+}
+
 /* layers */
 
 body {
@@ -88,10 +99,20 @@ input {
   opacity: 0.3;
 
   border-radius: 50%;
-  width: 0;
-  height: 0;
+
   margin: 0;
   padding: 0;
+}
+
+.move {
+  animation: moveMeasureDown;
+  animation-direction: normal;
+  animation-duration: 1s;
+
+  animation-fill-mode: forwards;
+
+  height: var(--0-height);
+  width: var(--0-width);
 }
 
 #center-container {
@@ -134,7 +155,6 @@ input {
   }
   100% {
     top: 100%;
-    display: none;
   }
 }
 
@@ -144,6 +164,20 @@ input {
   }
   100% {
     top: -100%;
-    display: none;
+  }
+}
+
+@keyframes moveMeasure {
+  0% {
+    height: var(--pr-height);
+    width: var(--pr-width);
+  }
+  50% {
+    height: var(--0-height);
+    width: var(--0-width);
+  }
+  100% {
+    height: var(--height);
+    width: var(--width);
   }
 }

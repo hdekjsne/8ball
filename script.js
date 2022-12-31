@@ -10,7 +10,7 @@ const answers = [
   { answer: 'скорее нет', chance: '10%'},
   { answer: 'скорее да', chance: '90%'},
   { answer: 'я устал. мне нужен отдых', chance: '0'},
-  { answer: 'я советую больше полагаться на рациональное мышление и анализ, а не на магичекие шары', chance: '50%'},
+  { answer: 'я советую больше полагаться на рациональное мышление и анализ, чем на магичекие шары', chance: '50%'},
   { answer: 'мне не хватает данных для ответа на этот вопрос', chance: '50%'},
   { answer: 'всё возможно', chance: '60%'},
   { answer: 'в одной из альтернативных реальностей ответ однозначно положительный', chance: '58%'},
@@ -19,22 +19,33 @@ const answers = [
   { answer: 'шансов почти нет', chance: '2%'},
   { answer: 'вероятность успеха очень высока', chance: '99%'},
   { answer: 'да нет, наверное', chance: '20%'},
-  { answer: 'вероятность успеха - более 100%. вот это да!', chance: '120%'},
+  { answer: 'скорее всего да. но уверены ли вы, что это именно то, чего вы действительно хотите?', chance: '80%'},
 ];
 
 const input = document.querySelector('#input');
+const sphere = document.querySelector('#sphere');
 const result = document.querySelector('#result');
 const measure = document.querySelector('#measure');
 
+let index;
+let possibility = '0';
+let prPossibility;
+
 function shake() {
-  let index = Math.floor(Math.random() * 21);
-  let possibility = answers[index].chance;
+  measure.classList.remove('move');
+  
+  prPossibility = possibility;
+  index = Math.floor(Math.random() * 21);
+  possibility = answers[index].chance;
   
   result.textContent = answers[index].answer;
   result.style.padding = '20px';
-  measure.style.height = possibility;
-  measure.style.width = possibility;
 
+  document.style.setProperty('--pr-height', prPossibility);
+  document.style.setProperty('--pr-width', prPossibility);
+  document.style.setProperty('--height', possibility);
+  document.style.setProperty('--width', possibility);
+  measure.className = 'move';
 }
 
 function getKey(e) {
